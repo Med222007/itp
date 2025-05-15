@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.fondo{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.58)), /* Capa blanca semi-transparente */
+        url('./assets/images/cancha_sintetica.jpg'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Asegura que el fondo esté detrás del contenido */
+}
+.fondoPageFound{
+    position:fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:url('./assets/images/404.jpg'); /* Imagen de fondo */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+.size-adjusted {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+}
+.subfondo{
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 60%; 
+    background-image: url('./assets/images/cancha_sintetica.jpg');
+    background-size: cover;
+    background-position: center;
+   
+}
+.logo_itp{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url("./assets/images/logo_itp.png");
+    width: 25vh;
+    height:25vh;
+    background-size: contain;
+    border-radius: 50%;
+    background-repeat: no-repeat; 
+      
+}
+

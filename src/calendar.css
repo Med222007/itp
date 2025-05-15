@@ -1,0 +1,51 @@
+
+
+.fc .fc-daygrid-day.fc-day-other {/* color de dias que no son del mes*/
+    color: #000000;
+}
+
+.fc-daygrid-day-frame {
+    border:  solid 1px black; /* Espacio entre los días */ 
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+.fc-daygrid-day-frame:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.sunday {
+    background-color: rgba(255, 99, 71, 0.5); /* Cambiar el color de los domingos */
+}
+
+.fc-daygrid-day-top{
+    justify-content: center;/*para centrar el numero de los dias dentro de los recuadros*/
+}
+.fc .fc-daygrid-day.fc-day-today{
+    background-color: rgba(110, 206, 122, 0.5);
+}
+
+
+
+
+/* Eliminar bordes*/
+.fc-theme-standard td,
+.fc-theme-standard th {
+    border: none; /* Elimina el borde */
+}
+.fc-scrollgrid {
+    border: none; /* Elimina el borde del contenedor */
+}
+.fc-col-header {
+    margin-bottom:5%; /* Espacio adicional debajo del encabezado */
+}
+.fc-theme-standard .fc-scrollgrid {
+    border: none;
+}
+
+
+  
+
+  
+
+  
+ 
+  

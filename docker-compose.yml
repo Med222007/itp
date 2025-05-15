@@ -1,0 +1,39 @@
+
+version: '3.8'
+
+services:
+  # Servicio para el backend (Node.js)
+  backend:
+    build:
+      context: ./Servidor  # Apunta a la carpeta Servidor
+      dockerfile: Dockerfile  # El archivo Dockerfile está dentro de Servidor
+    ports:
+      - "3001:3001"  # Mapea el puerto del contenedor al puerto local
+    volumes:
+      - .:/app  # Sincroniza el código fuente con el contenedor
+  
+    environment:
+      - DB_HOST=db  # Nombre del contenedor de la base de datos (referencia interna en Docker)
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=40781889  # Asegúrate de que la contraseña sea la misma en el contenedor de la base de datos
+      - DB_NAME=usuarios_itp  # Asegúrate de que el nombre de la base de datos coincida
+      
+    depends_on:
+      - db  # El backend depende de la base de datos
+
+  # Servicio para la base de datos (MySQL)
+  db:
+    image: mysql:5.7  # Utilizamos una imagen de MySQL 5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 40781889  # Contraseña del usuario root de MySQL (debe coincidir con DB_PASSWORD)
+      MYSQL_DATABASE: usuarios_itp  # Nombre de la base de datos inicial (debe coincidir con DB_NAME)
+    ports:
+      - "3307:3306"  # Mapea el puerto de MySQL para poder acceder desde fuera de Docker
+    volumes:
+      - mysql_data:/var/lib/mysql  # Volumen persistente para los datos de la base de datos
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Copia el archivo init.sql al contenedor para inicializar la base de datos
+
+# Definir el volumen persistente
+volumes:
+  mysql_data:
